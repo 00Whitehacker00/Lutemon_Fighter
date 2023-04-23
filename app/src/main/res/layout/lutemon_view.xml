@@ -2,16 +2,16 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="#BB98EC"
     android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/profilePic"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginRight="10dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="10dp"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <LinearLayout
@@ -24,33 +24,37 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Etunimi Sukunimi"
-            android:textSize="18dp" />
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/degreeProgramme"
+            android:id="@+id/attack"
             android:layout_width="match_parent"
             android:layout_height="22dp"
-            android:text="Tutkinto"
+            android:text="Hyökkäys"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/emailAdress"
+            android:id="@+id/defend"
             android:layout_width="match_parent"
             android:layout_height="22dp"
-            android:text="Sähköpostiosoite"
+            android:text="Puolustus"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/txt"
+            android:id="@+id/health"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:text="Suoritetut tutkinnot:"
-            android:textStyle="italic" />
+            android:layout_height="22dp"
+            android:text="Elämä"
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/degreeLevel"
+            android:id="@+id/xp"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="TextView" />
+            android:layout_height="22dp"
+            android:text="Kokemus"
+            android:textSize="14sp" />
+
+
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
