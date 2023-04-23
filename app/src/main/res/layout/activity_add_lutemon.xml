@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AddLutemonActivity">
+
+    <EditText
+        android:id="@+id/textInputName"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Lutemonin nimi"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.537" />
+
+    <Button
+        android:id="@+id/buttonAddLutemon"
+        android:layout_width="249dp"
+        android:layout_height="53dp"
+        android:onClick="addLutemon"
+        android:text="Lisää Lutemon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
+
+    <RadioGroup
+        android:id="@+id/rgLutemonType"
+        android:layout_width="280dp"
+        android:layout_height="203dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21">
+
+        <RadioButton
+            android:id="@+id/buttonWhite"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text="Valkoinen"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/buttonGREEN"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Vihreä"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/buttonPINK"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Pinkki"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/buttonORANGE"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Oranssi"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/buttonBLACK"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Musta"
+            android:textSize="12sp" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
