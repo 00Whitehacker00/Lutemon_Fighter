@@ -46,10 +46,15 @@ public class AddLutemonActivity extends AppCompatActivity {
             case R.id.buttonBLACK:
                 lutemonType = "Musta";
                 break;
-
         }
 
-        Lutemon newLutemon = new Lutemon(name, lutemonType);
+        int attack = 10;
+        int defend = 8;
+        int xp = 100;
+        int health = 15;
+        int maxHealth = 20;
+
+        Lutemon newLutemon = new Lutemon(name, lutemonType, attack, defend, xp, health, maxHealth);
         LutemonStorage.getInstance().addLutemon(newLutemon);
 
         LutemonStorage.getInstance().saveLutemon(this);

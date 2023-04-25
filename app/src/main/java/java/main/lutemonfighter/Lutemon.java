@@ -6,8 +6,7 @@ public class Lutemon implements Serializable {
 
     protected String name;
     protected String lutemonType;
-    private int image;
-
+    protected int image;
     protected int attack;
     protected int defend;
     protected int experience;
@@ -50,6 +49,10 @@ public class Lutemon implements Serializable {
 
     public int getMaxHealth() {
         return maxHealth;
+    }
+
+    public int getImage() {
+        return image;
     }
 
 }

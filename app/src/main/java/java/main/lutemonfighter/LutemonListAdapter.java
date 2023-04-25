@@ -14,7 +14,7 @@ import java.util.Comparator;
 public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
 
     private Context context;
-    private ArrayList<Lutemon> lutemons = new ArrayList<>();
+    private ArrayList<Lutemon> lutemons;
 
     public LutemonListAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
@@ -31,6 +31,12 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position) {
         holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getLutemonType() + ")");
+        /*holder.lutemonAttack.setText(lutemons.get(position).getAttack());
+        holder.lutemonDefend.setText(lutemons.get(position).getDefend());
+        holder.lutemonHealth.setText(lutemons.get(position).getHealth());
+        holder.lutemonXP.setText(lutemons.get(position).getExperience());*/
+
+        holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package java.main.lutemonfighter;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ public class LutemonViewHolder extends RecyclerView.ViewHolder {
     TextView lutemonDefend;
     TextView lutemonHealth;
     TextView lutemonXP;
+    ImageView lutemonImage;
 
     public LutemonViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,5 +24,6 @@ public class LutemonViewHolder extends RecyclerView.ViewHolder {
         lutemonDefend = itemView.findViewById(R.id.defend);
         lutemonHealth = itemView.findViewById(R.id.health);
         lutemonXP = itemView.findViewById(R.id.xp);
+        lutemonImage = itemView.findViewById(R.id.profilePic);
     }
 }
