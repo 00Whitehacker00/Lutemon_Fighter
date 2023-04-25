@@ -12,6 +12,9 @@
         android:theme="@style/Theme.LutemonFighter"
         tools:targetApi="31">
         <activity
+            android:name=".TabActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListLutemonActivity"
             android:exported="false" />
         <activity
