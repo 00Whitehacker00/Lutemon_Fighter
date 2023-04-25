@@ -7,7 +7,5 @@ public class Green extends Lutemon {
 
         image = R.drawable.green_1;
 
-        // yiebcu
-
     }
 }
