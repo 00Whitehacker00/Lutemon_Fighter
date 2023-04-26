@@ -56,5 +56,3 @@ public class Lutemon implements Serializable {
     }
 
 }
-
-// bdiuebudow
