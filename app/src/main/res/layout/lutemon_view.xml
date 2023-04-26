@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="#BB98EC"
+    android:background="#E4648F"
     android:orientation="horizontal">
 
     <ImageView
@@ -25,7 +25,7 @@
             android:layout_height="30dp"
             android:text="Etunimi Sukunimi"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/attack"
