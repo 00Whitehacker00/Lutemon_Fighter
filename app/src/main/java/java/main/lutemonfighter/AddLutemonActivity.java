@@ -23,7 +23,6 @@ public class AddLutemonActivity extends AppCompatActivity {
     public void addLutemon(View view) {
 
         String name = inputName.getText().toString();
-        String lutemonType = "";
 
         RadioGroup lutType = findViewById(R.id.rgLutemonType);
 
@@ -31,27 +30,22 @@ public class AddLutemonActivity extends AppCompatActivity {
         switch (lutType.getCheckedRadioButtonId()) {
             case R.id.buttonWhite:
                 newLutemon = new White(name);
-                lutemonType = "Valkoinen";
                 break;
 
             case R.id.buttonGREEN:
                 newLutemon = new Green(name);
-                lutemonType = "Vihreä";
                 break;
 
             case R.id.buttonPINK:
                 newLutemon = new Pink(name);
-                lutemonType = "Pinkki";
                 break;
 
             case R.id.buttonORANGE:
                 newLutemon = new Orange(name);
-                lutemonType = "Oranssi";
                 break;
 
             case R.id.buttonBLACK:
                 newLutemon = new Black(name);
-                lutemonType = "Musta";
                 break;
         }
 
