@@ -2,8 +2,8 @@ package java.main.lutemonfighter;
 
 public class Orange extends Lutemon {
 
-    public Orange() {
-        super("name", "type", 8, 1, 100, 15, 17);
+    public Orange(String name) {
+        super(name, "Orange", 8, 1, 100, 17, 17);
 
         image = R.drawable.orange_3;
 

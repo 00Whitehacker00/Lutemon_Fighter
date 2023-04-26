@@ -2,8 +2,8 @@ package java.main.lutemonfighter;
 
 public class Pink extends Lutemon {
 
-    public Pink() {
-        super("name", "type", 7, 2, 100, 15, 18);
+    public Pink(String name) {
+        super(name, "Pink", 7, 2, 100, 18, 18);
 
         image = R.drawable.pink_1;
 

@@ -26,35 +26,35 @@ public class AddLutemonActivity extends AppCompatActivity {
         String lutemonType = "";
 
         RadioGroup lutType = findViewById(R.id.rgLutemonType);
+
+        Lutemon newLutemon = null;
         switch (lutType.getCheckedRadioButtonId()) {
             case R.id.buttonWhite:
+                newLutemon = new White(name);
                 lutemonType = "Valkoinen";
                 break;
 
             case R.id.buttonGREEN:
+                newLutemon = new Green(name);
                 lutemonType = "Vihreä";
                 break;
 
             case R.id.buttonPINK:
+                newLutemon = new Pink(name);
                 lutemonType = "Pinkki";
                 break;
 
             case R.id.buttonORANGE:
+                newLutemon = new Orange(name);
                 lutemonType = "Oranssi";
                 break;
 
             case R.id.buttonBLACK:
+                newLutemon = new Black(name);
                 lutemonType = "Musta";
                 break;
         }
 
-        int attack = 10;
-        int defend = 8;
-        int xp = 100;
-        int health = 15;
-        int maxHealth = 20;
-
-        Lutemon newLutemon = new Lutemon(name, lutemonType, attack, defend, xp, health, maxHealth);
         LutemonStorage.getInstance().addLutemon(newLutemon);
 
         LutemonStorage.getInstance().saveLutemon(this);
