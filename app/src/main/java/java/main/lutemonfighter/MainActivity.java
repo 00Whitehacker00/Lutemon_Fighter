@@ -58,21 +58,3 @@ public class MainActivity extends AppCompatActivity {
 /*
 Tiedosto : data/data/java.main.lutemonfighter/files/lutemons.data
  */
-
-
-/*
-Battle luokka :
-Home, battle ja train luokat perii kantaluokasta --> location luokka
-
-singleton storage saa kaikki lutemonit
-siihen tulee home, battle ja train jäsenmuuttujat --A voi tehää hashMap
-
-ENUM
-public enum
-location from location to
-
-
-listat --> lutemnit kotona
-HashMap jos haluu laajentaa
-
- */

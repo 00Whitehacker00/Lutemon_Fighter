@@ -12,29 +12,27 @@
 
     <ImageView
         android:id="@+id/profilePic"
-        android:layout_width="78dp"
-        android:layout_height="54dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginEnd="10dp"
         android:src="@android:drawable/btn_star_big_on" />
 
-    <LinearLayout
-        android:layout_width="163dp"
+    <TextView
+        android:id="@+id/lutName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="29dp"
-        android:layout_toStartOf="@id/buttons_container"
         android:layout_toEndOf="@+id/profilePic"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-    </LinearLayout>
+        android:layout_toStartOf="@+id/buttons_container"
+        android:layout_marginTop="17dp"
+        android:text="Lutemonin nimi"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/buttons_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:paddingRight="10dp">
 
@@ -46,16 +44,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/itemName"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="3dp"
-        android:layout_toEndOf="@+id/profilePic"
-        android:gravity="center|left"
-        android:text="Ostos"
-        android:textSize="20sp" />
 
 
 </RelativeLayout>
