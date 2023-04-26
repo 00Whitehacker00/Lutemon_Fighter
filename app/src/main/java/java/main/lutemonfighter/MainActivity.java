@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     return;
             }
-            Location location = Location.BATTLE;
-            // getSupportFragmentManager().beginTransaction().replace(R.id.buttonMoveLutemons, fragment).commit();
+            LutemonLocation location = LutemonLocation.BATTLE_FIELD;
+
         }
     };
 }

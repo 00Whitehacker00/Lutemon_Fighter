@@ -1,7 +1,7 @@
 package java.main.lutemonfighter;
 
-public enum Location {
+public enum LutemonLocation {
     HOME,
     TRAINING,
-    BATTLE,
+    BATTLE_FIELD,
 }
