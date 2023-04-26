@@ -3,7 +3,13 @@ package java.main.lutemonfighter.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.main.lutemonfighter.LutemonListAdapter;
+import java.main.lutemonfighter.LutemonStorage;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +31,27 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private LutemonListAdapter lutemonListAdapter;
 
     public HomeFragment() {
         // Required empty public constructor
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        recyclerView = view.findViewById(R.id.homeRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        lutemonListAdapter = new LutemonListAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
+        recyclerView.setAdapter(lutemonListAdapter);
+
+        return view;
+    }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -56,7 +79,8 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+}
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,3 +88,5 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }
+
+ */
