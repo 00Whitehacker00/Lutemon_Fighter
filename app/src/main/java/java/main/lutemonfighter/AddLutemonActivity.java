@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class AddLutemonActivity extends AppCompatActivity {
 
     private EditText inputName;
-
+/* test 123 */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
