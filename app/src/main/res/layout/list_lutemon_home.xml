@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/relativeLayout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
@@ -19,12 +18,12 @@
         android:src="@android:drawable/btn_star_big_on" />
 
     <TextView
-        android:id="@+id/lutName"
+        android:id="@+id/itemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_toStartOf="@+id/buttons_container"
         android:layout_toEndOf="@+id/profilePic"
+        android:layout_toStartOf="@+id/buttons_container"
+        android:layout_marginTop="17dp"
         android:text="Lutemonin nimi"
         android:textSize="20sp" />
 
@@ -45,5 +44,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
+
 
 </RelativeLayout>
