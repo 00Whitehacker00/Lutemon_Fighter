@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.main.lutemonfighter.LutemonListAdapter;
 import java.main.lutemonfighter.LutemonStorage;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +28,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerView = view.findViewById(R.id.homeRecyclerView);
+        recyclerView = view.findViewById(R.id.lutemonListRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         lutemonListAdapter = new LutemonListAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
@@ -47,6 +45,7 @@ public class HomeFragment extends Fragment {
         }
     }
 }
+
 /*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
