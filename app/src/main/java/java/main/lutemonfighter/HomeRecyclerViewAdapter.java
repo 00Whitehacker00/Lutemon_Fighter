@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
 
     private List<Lutemon> lutemons;
     private Context context;
 
-    public RecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
+    public HomeRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
     }

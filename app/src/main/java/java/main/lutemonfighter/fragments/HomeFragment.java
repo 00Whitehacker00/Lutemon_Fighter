@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.main.lutemonfighter.LutemonStorage;
-import java.main.lutemonfighter.RecyclerViewAdapter;
+import java.main.lutemonfighter.HomeRecyclerViewAdapter;
 
 
 import android.view.LayoutInflater;
@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.HomeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
         recyclerView.setAdapter(adapter);
 
         return view;
