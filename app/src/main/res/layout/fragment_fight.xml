@@ -4,4 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8BC34A"
-    tools:context=".fragments.FightFragment" />
+    tools:context=".fragments.FightFragment" >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerViewFight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>
