@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     return;
             }
-            LutemonLocation location = LutemonLocation.BATTLE_FIELD;
+            LutemonLocation location = LutemonLocation.HOME;
 
         }
     };

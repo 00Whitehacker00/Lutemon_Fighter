@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,6 +54,14 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             lutemonImage = itemView.findViewById(R.id.profilePic);
             itemName = itemView.findViewById(R.id.itemName);
             checkBox = itemView.findViewById(R.id.checkBox);
+        }
+
+        public void trainingList(View itemView) {
+            if (checkBox.isChecked()) {
+
+            }
+
+            // Toast.makeText(this, "Lutemon lisätty treeniareenalle", Toast.LENGTH_SHORT).show();
         }
     }
 }
