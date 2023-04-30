@@ -5,12 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
@@ -21,6 +24,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     public HomeRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
+        sortHomeLutemons();
     }
 
     @NonNull
@@ -43,6 +47,15 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         return lutemons.size();
     }
 
+    private void sortHomeLutemons() {
+        Collections.sort(lutemons, new Comparator<Lutemon>() {
+            @Override
+            public int compare(Lutemon oldLutemon, Lutemon newLutemon) {
+                return oldLutemon.getName().compareTo(newLutemon.getName());
+            }
+        });
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView lutemonImage;
         public TextView itemName;
@@ -53,15 +66,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             lutemonImage = itemView.findViewById(R.id.profilePic);
             itemName = itemView.findViewById(R.id.itemName);
             checkBox = itemView.findViewById(R.id.checkBox);
-        }
 
-        public void trainingList(View itemView) {
-            if (checkBox.isChecked()) {
 
-            }
-
-            // Toast.makeText(this, "Lutemon lisätty treeniareenalle", Toast.LENGTH_SHORT).show();
         }
     }
+
+            // Toast.makeText(this, "Lutemon lisätty treeniareenalle", Toast.LENGTH_SHORT).show();
 }
 

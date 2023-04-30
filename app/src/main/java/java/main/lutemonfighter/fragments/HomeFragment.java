@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.main.lutemonfighter.R;
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    ArrayList<String> lutemonsToTrain = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor
