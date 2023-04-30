@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.main.lutemonfighter.LutemonStorage;
-import java.main.lutemonfighter.RecyclerViewAdapter;
+import java.main.lutemonfighter.HomeRecyclerViewAdapter;
 
 
 import android.view.LayoutInflater;
@@ -15,10 +15,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.main.lutemonfighter.R;
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    ArrayList<String> lutemonsToTrain = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor
@@ -32,7 +34,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.HomeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
         recyclerView.setAdapter(adapter);
 
         Button trainButton = view.findViewById(R.id.buttonMoveTrain);
