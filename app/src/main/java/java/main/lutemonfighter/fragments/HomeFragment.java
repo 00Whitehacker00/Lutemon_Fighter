@@ -12,6 +12,7 @@ import java.main.lutemonfighter.HomeRecyclerViewAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.main.lutemonfighter.R;
 import java.util.ArrayList;
@@ -34,6 +35,22 @@ public class HomeFragment extends Fragment {
 
         HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(), LutemonStorage.getInstance().getListOfLutemons());
         recyclerView.setAdapter(adapter);
+
+        Button trainButton = view.findViewById(R.id.buttonMoveTrain);
+        trainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        Button fightButton = view.findViewById(R.id.buttonMoveFight);
+        fightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

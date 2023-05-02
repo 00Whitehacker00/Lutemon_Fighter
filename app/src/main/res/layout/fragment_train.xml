@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RecyclerViewTrain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFA036"
-    tools:context=".fragments.TrainFragment" />
+    tools:context=".fragments.TrainFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>
