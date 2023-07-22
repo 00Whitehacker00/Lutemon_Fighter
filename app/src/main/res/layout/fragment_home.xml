@@ -24,7 +24,7 @@
             android:layout_gravity="center_horizontal|left"
             android:layout_marginHorizontal="4dp"
             android:layout_weight="1"
-            android:text="Treenaamaan" />
+            android:text="Train" />
 
         <Button
             android:id="@+id/buttonMoveFight"
@@ -33,7 +33,7 @@
             android:layout_gravity="center_horizontal|right"
             android:layout_marginHorizontal="4dp"
             android:layout_weight="1"
-            android:text="Taisteluun" />
+            android:text="Fight" />
 
     </LinearLayout>
 
