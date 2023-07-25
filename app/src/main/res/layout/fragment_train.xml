@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RecyclerViewTrain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFA036"
+    android:background="@color/teal_200"
     tools:context=".fragments.TrainFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/moveLutemonsButtonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/buttonMoveToHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|left"
+                android:layout_marginHorizontal="4dp"
+                android:layout_weight="1"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/buttonMoveToFightFromTrain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|right"
+                android:layout_marginHorizontal="4dp"
+                android:layout_weight="1"
+                android:text="Fight" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewTrain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/moveLutemonsButtonsContainer"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
