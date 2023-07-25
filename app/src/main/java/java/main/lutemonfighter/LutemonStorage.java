@@ -86,4 +86,16 @@ public class LutemonStorage {
     public ArrayList<Lutemon> getListOfLutemons() {
         return allLutemons;
     }
+
+    public Lutemon getLutemonWithoutRemove(int id) {
+        return allLutemons.get(id);
+    }
+
+    public void removeLutemon(int idx) {
+        allLutemons.remove(idx);
+    }
+
+    public int getItemCount() {
+        return allLutemons.size();
+    }
 }
