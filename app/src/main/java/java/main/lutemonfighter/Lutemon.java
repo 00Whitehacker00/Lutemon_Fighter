@@ -4,20 +4,18 @@ import java.io.Serializable;
 
 public class Lutemon implements Serializable {
 
-    public String name;
-    public String lutemonType;
-    public int image;
-    public int attack;
-    public int defend;
-    public int experience;
-    public int health;
-    public int maxHealth;
-    public boolean isSelected;
-    public boolean isInTraining; // Add the isInTraining property
-
+    protected String name;
+    protected String lutemonType;
+    protected int image;
+    protected int attack;
+    protected int defend;
+    protected int experience;
+    protected int health;
+    protected int maxHealth;
+    protected boolean isChecked;
     protected String id;
 
-    public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth, int image) {
+    public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth) {
         this.name = name;
         this.lutemonType = lutemonType;
         this.attack = attack;
@@ -25,26 +23,18 @@ public class Lutemon implements Serializable {
         this.experience = experience;
         this.health = health;
         this.maxHealth = maxHealth;
-        this.image = image;
-        this.isSelected = false;
-        this.isInTraining = false; // Initialize isInTraining to false
+        this.isChecked = false;
+
+        id = String.valueOf((int)(Math.random()));
     }
 
-    public boolean isSelected() {
-        return isSelected;
+    // getter and setter methods for isChecked
+    public boolean isChecked() {
+        return isChecked;
     }
 
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    // Add the getter and setter methods for isInTraining
-    public boolean isInTraining() {
-        return isInTraining;
-    }
-
-    public void setIsInTraining(boolean isInTraining) {
-        this.isInTraining = isInTraining;
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
     public String getName() {
