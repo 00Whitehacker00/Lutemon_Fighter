@@ -74,6 +74,7 @@
             android:layout_height="22dp"
             android:text="Kokemus"
             android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout

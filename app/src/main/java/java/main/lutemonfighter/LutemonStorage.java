@@ -61,6 +61,7 @@ public class LutemonStorage {
             lutemonWriter.close();
         } catch (IOException e) {
             System.out.println("Lutemonien tallentaminen epäonnistui");
+            e.printStackTrace();
         }
     }
 
@@ -99,3 +100,5 @@ public class LutemonStorage {
         return allLutemons.size();
     }
 }
+
+

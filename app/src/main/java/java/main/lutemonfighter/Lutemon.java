@@ -3,17 +3,17 @@ package java.main.lutemonfighter;
 import java.io.Serializable;
 
 public class Lutemon implements Serializable {
-
-    protected String name;
-    protected String lutemonType;
-    protected int image;
-    protected int attack;
-    protected int defend;
-    protected int experience;
-    protected int health;
-    protected int maxHealth;
-    protected boolean isChecked;
-    protected String id;
+    public String name;
+    public String lutemonType;
+    public int image;
+    public int attack;
+    public int defend;
+    public int experience;
+    public int health;
+    public int maxHealth;
+    public boolean isSelected;
+    public boolean isInTraining; // Add the isInTraining property
+    public String id;
 
     public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth) {
         this.name = name;
@@ -23,18 +23,40 @@ public class Lutemon implements Serializable {
         this.experience = experience;
         this.health = health;
         this.maxHealth = maxHealth;
-        this.isChecked = false;
+        this.isSelected = false;
+        this.isInTraining = false; // Initialize isInTraining to false
 
         id = String.valueOf((int)(Math.random()));
     }
 
-    // getter and setter methods for isChecked
-    public boolean isChecked() {
-        return isChecked;
+    public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth, int image) {
+        this.name = name;
+        this.lutemonType = lutemonType;
+        this.attack = attack;
+        this.defend = defend;
+        this.experience = experience;
+        this.health = health;
+        this.maxHealth = maxHealth;
+        this.image = image;
+        this.isSelected = false;
+        this.isInTraining = false; // Initialize isInTraining to false
     }
 
-    public void setChecked(boolean checked) {
-        isChecked = checked;
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    // Add the getter and setter methods for isInTraining
+    public boolean isInTraining() {
+        return isInTraining;
+    }
+
+    public void setIsInTraining(boolean isInTraining) {
+        this.isInTraining = isInTraining;
     }
 
     public String getName() {
@@ -72,5 +94,6 @@ public class Lutemon implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 }
+
+
