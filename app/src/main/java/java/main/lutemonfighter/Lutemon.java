@@ -13,6 +13,7 @@ public class Lutemon implements Serializable {
     protected int health;
     protected int maxHealth;
     protected boolean isChecked;
+    protected boolean isTrained;
 
     public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth) {
         this.name = name;
@@ -23,6 +24,7 @@ public class Lutemon implements Serializable {
         this.health = health;
         this.maxHealth = maxHealth;
         this.isChecked = false;
+        this.isTrained = false;
     }
 
     // getter and setter methods for isChecked
@@ -32,6 +34,15 @@ public class Lutemon implements Serializable {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    // getter and setter methods for isTrained
+    public boolean isTrained() {
+        return isTrained;
+    }
+
+    public void setTrained(boolean trained) {
+        isTrained = trained;
     }
 
     public String getName() {
@@ -66,4 +77,27 @@ public class Lutemon implements Serializable {
         return image;
     }
 
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefend(int defend) {
+        this.defend = defend;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.main.lutemonfighter.Lutemon;
 import java.main.lutemonfighter.LutemonStorage;
 import java.main.lutemonfighter.HomeRecyclerViewAdapter;
 
@@ -13,11 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.main.lutemonfighter.R;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+    private ArrayList<Lutemon> selectedLutemons = new ArrayList<>();
 
     private RecyclerView recyclerView;
     ArrayList<String> lutemonsToTrain = new ArrayList<>();
@@ -41,7 +45,19 @@ public class HomeFragment extends Fragment {
         trainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // get the selected lutemons from the adapter
+                selectedLutemons = adapter.getSelectedLutemons();
 
+                if (selectedLutemons.size() > 0) {
+                    // add the selected lutemons to the list of lutemons to train
+                    for (Lutemon lutemon : selectedLutemons) {
+                        lutemonsToTrain.add(lutemon.getName());
+                    }
+
+                    // TODO: start training activity with the lutemonsToTrain list
+                } else {
+                    Toast.makeText(getActivity(), "Please select at least one lutemon to train", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -65,6 +81,7 @@ public class HomeFragment extends Fragment {
         }
     }
 }
+
 /*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

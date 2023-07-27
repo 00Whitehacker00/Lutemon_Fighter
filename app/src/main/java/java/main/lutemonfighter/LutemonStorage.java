@@ -40,6 +40,13 @@ public class LutemonStorage {
         fightingLutemons.add(lutemon);
     }
 
+    public void addUpdatedLutemon(Lutemon lutemon) {
+        int index = allLutemons.indexOf(lutemon);
+        if (index != -1) {
+            allLutemons.set(index, lutemon);
+        }
+    }
+
     public ArrayList<Lutemon> getAllLutemons() {
         return allLutemons;
     }

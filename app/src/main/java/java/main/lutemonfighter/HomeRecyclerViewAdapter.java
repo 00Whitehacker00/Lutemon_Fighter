@@ -8,23 +8,26 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
 
-    private List<Lutemon> lutemons;
+    private ArrayList<Lutemon> lutemons;
     private Context context;
+    private ArrayList<Integer> selectedLutemons;
 
-    public HomeRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
+    public HomeRecyclerViewAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
         sortHomeLutemons();
+        selectedLutemons = new ArrayList<>();
     }
 
     @NonNull
@@ -39,7 +42,23 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         Lutemon lutemon = lutemons.get(position);
         holder.itemName.setText(lutemon.getName());
         holder.lutemonImage.setImageResource(lutemon.getImage());
-        holder.checkBox.setChecked(false);
+
+        // Set the checkbox state based on whether this lutemon is selected or not
+        holder.checkBox.setChecked(selectedLutemons.contains(position));
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int adapterPosition = holder.getAdapterPosition();
+                if (isChecked) {
+                    // Add this lutemon to the selected list
+                    selectedLutemons.add(adapterPosition);
+                } else {
+                    // Remove this lutemon from the selected list
+                    selectedLutemons.remove(Integer.valueOf(adapterPosition));
+                }
+            }
+        });
     }
 
     @Override
@@ -63,14 +82,20 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            lutemonImage = itemView.findViewById(R.id.profilePic);
-            itemName = itemView.findViewById(R.id.itemName);
+            lutemonImage = itemView.findViewById(R.id.train_item_image);
+            itemName = itemView.findViewById(R.id.train_item_name);
             checkBox = itemView.findViewById(R.id.checkBox);
-
-
         }
     }
 
-            // Toast.makeText(this, "Lutemon lisätty treeniareenalle", Toast.LENGTH_SHORT).show();
+    public ArrayList<Lutemon> getSelectedLutemons() {
+        ArrayList<Lutemon> selected = new ArrayList<>();
+        for (int i = 0; i < selectedLutemons.size(); i++) {
+            selected.add(lutemons.get(selectedLutemons.get(i)));
+        }
+        return selected;
+    }
 }
+
+
 
