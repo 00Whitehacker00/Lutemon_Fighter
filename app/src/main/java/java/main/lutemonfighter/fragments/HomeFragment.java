@@ -39,13 +39,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 List<Lutemon> selectedLutemons = new ArrayList<>();
                 for (Lutemon lutemon : LutemonStorage.getInstance().getListOfLutemons()) {
-                    if (lutemon.isSelected()) {
+                    if (lutemon != null && lutemon.isSelected()) {
                         selectedLutemons.add(lutemon);
                     }
                 }
 
                 // Move the selected lutemons to the training view
-                recyclerViewAdapter.moveToTraining(selectedLutemons);
+                moveLutemonsToTraining(selectedLutemons);
             }
         });
 
@@ -55,19 +55,39 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 List<Lutemon> selectedLutemons = new ArrayList<>();
                 for (Lutemon lutemon : LutemonStorage.getInstance().getListOfLutemons()) {
-                    if (lutemon.isSelected()) {
+                    if (lutemon != null && lutemon.isSelected()) {
                         selectedLutemons.add(lutemon);
                     }
                 }
 
                 // Move the selected lutemons to the fighting view
-                recyclerViewAdapter.moveToFighting(selectedLutemons);
+                moveLutemonsToFighting(selectedLutemons);
             }
         });
 
         return view;
     }
+
+    private void moveLutemonsToTraining(List<Lutemon> selectedLutemons) {
+        for (Lutemon lutemon : selectedLutemons) {
+            if (lutemon != null) {
+                lutemon.setIsInTraining(true);
+                LutemonStorage.getInstance().getListOfLutemons().remove(lutemon);
+                LutemonStorage.getInstance().getTrainingLutemons().add(lutemon);
+            }
+        }
+        recyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    private void moveLutemonsToFighting(List<Lutemon> selectedLutemons) {
+        for (Lutemon lutemon : selectedLutemons) {
+            if (lutemon != null) {
+                lutemon.setIsInTraining(false);
+                LutemonStorage.getInstance().getListOfLutemons().remove(lutemon);
+                LutemonStorage.getInstance().getFightingLutemons().add(lutemon);
+            }
+        }
+        recyclerViewAdapter.notifyDataSetChanged();
+    }
 }
-
-
 

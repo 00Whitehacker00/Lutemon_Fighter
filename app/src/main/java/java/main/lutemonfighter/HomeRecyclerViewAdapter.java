@@ -36,12 +36,15 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Check for null Lutemon object before accessing its properties
         Lutemon lutemon = lutemons.get(position);
-        holder.itemName.setText(lutemon.getName());
-        holder.lutemonImage.setImageResource(lutemon.getImage());
+        if (lutemon != null) {
+            holder.itemName.setText(lutemon.getName());
+            holder.lutemonImage.setImageResource(lutemon.getImage());
 
-        // Set the CheckBox state based on the isSelected field
-        holder.setChecked(lutemon.isSelected());
+            // Set the CheckBox state based on the isSelected field
+            holder.setChecked(lutemon.isSelected());
+        }
     }
 
     @Override
@@ -53,7 +56,15 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         Collections.sort(lutemons, new Comparator<Lutemon>() {
             @Override
             public int compare(Lutemon oldLutemon, Lutemon newLutemon) {
-                return oldLutemon.getName().compareTo(newLutemon.getName());
+                if (oldLutemon == null && newLutemon == null) {
+                    return 0; // Both are null, so consider them equal
+                } else if (oldLutemon == null) {
+                    return 1; // Null is considered greater than non-null
+                } else if (newLutemon == null) {
+                    return -1; // Non-null is considered greater than null
+                } else {
+                    return oldLutemon.getName().compareTo(newLutemon.getName());
+                }
             }
         });
     }
@@ -93,8 +104,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    // Update the isSelected state of the corresponding Lutemon
-                    lutemons.get(getAdapterPosition()).setSelected(isChecked);
+                    // Check for null Lutemon object before accessing its properties
+                    Lutemon lutemon = lutemons.get(getAdapterPosition());
+                    if (lutemon != null) {
+                        lutemon.setSelected(isChecked);
+                    }
                 }
             });
         }
@@ -105,4 +119,3 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         }
     }
 }
-
