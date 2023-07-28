@@ -1,18 +1,21 @@
 package java.main.lutemonfighter.fragments;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.main.lutemonfighter.FightTrainRecyclerViewAdapter;
 import java.main.lutemonfighter.Lutemon;
 import java.main.lutemonfighter.LutemonStorage;
+import java.main.lutemonfighter.FightTrainRecyclerViewAdapter;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import java.main.lutemonfighter.R;
+
 import java.util.List;
 
 public class FightFragment extends Fragment {
@@ -34,6 +37,12 @@ public class FightFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        List<Lutemon> fightingLutemons = LutemonStorage.getInstance().getFightingLutemons();
+        recyclerViewAdapter = new FightTrainRecyclerViewAdapter(getActivity(), fightingLutemons);
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
 }
-
-
