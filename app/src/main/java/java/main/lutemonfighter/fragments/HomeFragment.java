@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-//
+
     private RecyclerView recyclerView;
     private HomeRecyclerViewAdapter recyclerViewAdapter;
     private Button trainButton;
@@ -90,4 +90,3 @@ public class HomeFragment extends Fragment {
         recyclerViewAdapter.notifyDataSetChanged();
     }
 }
-

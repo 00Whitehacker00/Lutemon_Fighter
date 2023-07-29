@@ -92,6 +92,19 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         Collections.sort(lutemons, new Comparator<Lutemon>() {
             @Override
             public int compare(Lutemon oldLutemon, Lutemon newLutemon) {
+                if (oldLutemon == null || newLutemon == null) {
+                    // Handle the case where one of the Lutemon objects is null
+                    // You can decide how to sort null objects based on your requirements
+                    // For example, you can consider null objects as greater or smaller than non-null objects.
+                    // Here, we consider null objects as greater (placed after) non-null objects.
+                    if (oldLutemon == null && newLutemon == null) {
+                        return 0;
+                    } else if (oldLutemon == null) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }
                 return oldLutemon.getName().compareTo(newLutemon.getName());
             }
         });
