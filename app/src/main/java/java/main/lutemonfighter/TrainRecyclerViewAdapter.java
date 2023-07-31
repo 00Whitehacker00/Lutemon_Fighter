@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FightTrainRecyclerViewAdapter extends RecyclerView.Adapter<FightTrainRecyclerViewAdapter.ViewHolder> {
+public class TrainRecyclerViewAdapter extends RecyclerView.Adapter<TrainRecyclerViewAdapter.ViewHolder> {
 
-    private List<Lutemon> lutemons;
-    private Context context;
+    private final Context context;
+    private final List<Lutemon> lutemons;
 
-    public FightTrainRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
+    public TrainRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
     }
@@ -26,15 +26,17 @@ public class FightTrainRecyclerViewAdapter extends RecyclerView.Adapter<FightTra
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lutemon_view_fragment, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.train_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
-        holder.itemName.setText(lutemon.getName());
-        holder.lutemonImage.setImageResource(lutemon.getImage());
+
+        // Set the lutemon's name and image in the item view
+        holder.nameTextView.setText(lutemon.getName());
+        holder.imageView.setImageResource(lutemon.getImage());
     }
 
     @Override
@@ -54,13 +56,13 @@ public class FightTrainRecyclerViewAdapter extends RecyclerView.Adapter<FightTra
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView lutemonImage;
-        public TextView itemName;
+        public final TextView nameTextView;
+        public final ImageView imageView;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            lutemonImage = itemView.findViewById(R.id.profilePic);
-            itemName = itemView.findViewById(R.id.itemName);
+        public ViewHolder(View view) {
+            super(view);
+            nameTextView = view.findViewById(R.id.train_item_name);
+            imageView = view.findViewById(R.id.train_item_image);
         }
     }
 }

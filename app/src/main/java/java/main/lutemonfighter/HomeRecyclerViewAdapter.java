@@ -8,30 +8,33 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder> {
 
-    private List<Lutemon> lutemons;
+    private ArrayList<Lutemon> lutemons;
     private Context context;
+    private ArrayList<Integer> selectedLutemons;
 
-    public HomeRecyclerViewAdapter(Context context, List<Lutemon> lutemons) {
+    public HomeRecyclerViewAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
         sortHomeLutemons();
+        selectedLutemons = new ArrayList<>();
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lutemon_view_fragment, parent, false);
-        return new ViewHolder(view, lutemons); // Pass the lutemons list to the ViewHolder constructor
+        return new ViewHolder(view);
     }
 
     @Override
@@ -40,8 +43,22 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         holder.itemName.setText(lutemon.getName());
         holder.lutemonImage.setImageResource(lutemon.getImage());
 
-        // Set the CheckBox state based on the isSelected field
-        holder.setChecked(lutemon.isSelected());
+        // Set the checkbox state based on whether this lutemon is selected or not
+        holder.checkBox.setChecked(selectedLutemons.contains(position));
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int adapterPosition = holder.getAdapterPosition();
+                if (isChecked) {
+                    // Add this lutemon to the selected list
+                    selectedLutemons.add(adapterPosition);
+                } else {
+                    // Remove this lutemon from the selected list
+                    selectedLutemons.remove(Integer.valueOf(adapterPosition));
+                }
+            }
+        });
     }
 
     @Override
@@ -58,51 +75,27 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         });
     }
 
-    public void moveToTraining(List<Lutemon> selectedLutemons) {
-        for (Lutemon lutemon : selectedLutemons) {
-            lutemon.setIsInTraining(true);
-            lutemons.remove(lutemon);
-            LutemonStorage.getInstance().addTrainingLutemon(lutemon);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void moveToFighting(List<Lutemon> selectedLutemons) {
-        for (Lutemon lutemon : selectedLutemons) {
-            lutemon.setIsInTraining(false);
-            lutemons.remove(lutemon);
-            LutemonStorage.getInstance().addFightingLutemon(lutemon);
-        }
-        notifyDataSetChanged();
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView lutemonImage;
         public TextView itemName;
         public CheckBox checkBox;
-        private List<Lutemon> lutemons; // Add this member variable
 
-        public ViewHolder(@NonNull View itemView, List<Lutemon> lutemons) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.lutemons = lutemons; // Initialize the member variable
-            lutemonImage = itemView.findViewById(R.id.profilePic);
-            itemName = itemView.findViewById(R.id.itemName);
+            lutemonImage = itemView.findViewById(R.id.train_item_image);
+            itemName = itemView.findViewById(R.id.train_item_name);
             checkBox = itemView.findViewById(R.id.checkBox);
-
-            // Set an OnCheckedChangeListener for the CheckBox
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    // Update the isSelected state of the corresponding Lutemon
-                    lutemons.get(getAdapterPosition()).setSelected(isChecked);
-                }
-            });
-        }
-
-        // Method to set the checked state of the CheckBox
-        public void setChecked(boolean isChecked) {
-            checkBox.setChecked(isChecked);
         }
     }
+
+    public ArrayList<Lutemon> getSelectedLutemons() {
+        ArrayList<Lutemon> selected = new ArrayList<>();
+        for (int i = 0; i < selectedLutemons.size(); i++) {
+            selected.add(lutemons.get(selectedLutemons.get(i)));
+        }
+        return selected;
+    }
 }
+
+
 
