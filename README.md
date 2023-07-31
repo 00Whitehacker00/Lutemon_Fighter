@@ -15,4 +15,4 @@ Fight-fragmentissä olevista lutemoneista voi valita 2 lutemonta, jotka taistele
 Taistelun vaiheet tulostuvat näkyviin. Taistelu kestää kunnes jompi kumpi lutemoneista on kuollut.
 Kuollut lutemon poistuu listalta. Voittaja saa kokemuspisteen.
 
-Tekijät : 00Whitehacker00 ja 
+Tekijät : 00Whitehacker00 ja map003
