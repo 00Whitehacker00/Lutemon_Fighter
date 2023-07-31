@@ -12,7 +12,8 @@ public class Lutemon implements Serializable {
     public int health;
     public int maxHealth;
     public boolean isSelected;
-    public boolean isInTraining; // Add the isInTraining property
+    public boolean isInTraining;
+    public String id;
 
     public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth) {
         this.name = name;
@@ -23,7 +24,7 @@ public class Lutemon implements Serializable {
         this.health = health;
         this.maxHealth = maxHealth;
         this.isSelected = false;
-        this.isInTraining = false; // Initialize isInTraining to false
+        this.isInTraining = false;
     }
 
     public Lutemon(String name, String lutemonType, int attack, int defend, int experience, int health, int maxHealth, int image) {
@@ -36,7 +37,9 @@ public class Lutemon implements Serializable {
         this.maxHealth = maxHealth;
         this.image = image;
         this.isSelected = false;
-        this.isInTraining = false; // Initialize isInTraining to false
+        this.isInTraining = false;
+
+        id = String.valueOf((int)(Math.random()));
     }
 
     public boolean isSelected() {
@@ -47,7 +50,6 @@ public class Lutemon implements Serializable {
         isSelected = selected;
     }
 
-    // Add the getter and setter methods for isInTraining
     public boolean isInTraining() {
         return isInTraining;
     }
@@ -87,6 +89,40 @@ public class Lutemon implements Serializable {
     public int getImage() {
         return image;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) {
+            health = 0;
+        }
+    }
+
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    // Method to calculate if the lutemon defends against an attack
+    public boolean defense(int enemyAttack) {
+        // Calculate the effective defense value after considering the enemy's attack
+        int effectiveDefense = defend - enemyAttack;
+
+        // Determine if the lutemon manages to avoid death
+        return effectiveDefense >= 0;
+    }
 }
-
-

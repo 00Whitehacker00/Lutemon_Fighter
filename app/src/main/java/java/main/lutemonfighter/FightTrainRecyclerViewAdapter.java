@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FightTrainRecyclerViewAdapter extends RecyclerView.Adapter<FightTrainRecyclerViewAdapter.ViewHolder> {
@@ -39,6 +40,17 @@ public class FightTrainRecyclerViewAdapter extends RecyclerView.Adapter<FightTra
     @Override
     public int getItemCount() {
         return lutemons.size();
+    }
+
+    // Add this method to get the selected lutemons
+    public List<Lutemon> getSelectedLutemons() {
+        List<Lutemon> selectedLutemons = new ArrayList<>();
+        for (Lutemon lutemon : lutemons) {
+            if (lutemon.isSelected()) {
+                selectedLutemons.add(lutemon);
+            }
+        }
+        return selectedLutemons;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

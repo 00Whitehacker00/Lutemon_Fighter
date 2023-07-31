@@ -2,6 +2,7 @@ package java.main.lutemonfighter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -30,18 +31,54 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position) {
-        holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getLutemonType() + ")");
-        holder.lutemonAttack.setText("Hyökkäys: " + lutemons.get(position).getAttack());
-        holder.lutemonDefend.setText("Puolustus: " + lutemons.get(position).getDefend());
-        holder.lutemonHealth.setText("Elämä: " + lutemons.get(position).getHealth() + "/" + lutemons.get(position).getMaxHealth());
-        holder.lutemonXP.setText("Kokemus: " + lutemons.get(position).getExperience());
+        //holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getLutemonType() + ")");
+        holder.lutemonName.setText(LutemonStorage.getInstance().getLutemonWithoutRemove(position).getName() + " (" + lutemons.get(position).getLutemonType() + ")");
+        holder.lutemonAttack.setText("Hyökkäys: " + LutemonStorage.getInstance().getLutemonWithoutRemove(position).getAttack());
+        holder.lutemonDefend.setText("Puolustus: " + LutemonStorage.getInstance().getLutemonWithoutRemove(position).getDefend());
+        holder.lutemonHealth.setText("Elämä: " + LutemonStorage.getInstance().getLutemonWithoutRemove(position).getHealth() + "/" + LutemonStorage.getInstance().getLutemonWithoutRemove(position).getMaxHealth());
+        holder.lutemonXP.setText("Kokemus: " + LutemonStorage.getInstance().getLutemonWithoutRemove(position).getExperience());
 
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
+
+        holder.deleteImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = holder.getAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    LutemonStorage.getInstance().removeLutemon(pos);
+                    notifyItemRemoved(pos);
+                }
+            }
+        });
+
+        holder.editImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = holder.getAdapterPosition();
+
+                if (pos != RecyclerView.NO_POSITION) {  // tarkistaa onko alkio vielä olemassa
+                    if(holder.lutemonName.getVisibility() == View.VISIBLE) {
+                        holder.editName.setText(holder.lutemonName.getText());  // editointikentässä sama asia kuin nimessä
+                        holder.lutemonName.setVisibility(View.GONE);
+                        holder.editName.setVisibility(View.VISIBLE); // nimi piiloon edittext näkyviin
+
+                    }
+                    else {
+                        Lutemon lutemon = LutemonStorage.getInstance().getLutemonWithoutRemove(pos); // hakee oikea alkio listasta
+                        lutemon.setName(holder.editName.getText().toString());  // asettaa muokkaus nimen päälle / vaihtaa nimen arvo
+                        notifyItemChanged(pos);
+                    }
+                }
+
+            }
+
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return lutemons.size();
+        return LutemonStorage.getInstance().getItemCount();
     }
 
     private void sortLutemons() {

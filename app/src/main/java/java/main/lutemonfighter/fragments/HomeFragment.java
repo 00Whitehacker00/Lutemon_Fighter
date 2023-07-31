@@ -39,8 +39,7 @@ public class HomeFragment extends Fragment {
         trainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Lutemon> selectedLutemons = new ArrayList<>();
-                for (Lutemon lutemon : LutemonStorage.getInstance().getListOfLutemons()) {
+                List<Lutemon> selectedLutemons = new ArrayList<>();               for (Lutemon lutemon : LutemonStorage.getInstance().getListOfLutemons()) {
                     if (lutemon.isSelected()) {
                         selectedLutemons.add(lutemon);
                     }

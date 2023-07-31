@@ -1,50 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
-    tools:context=".fragments.FightFragment">
+    android:background="@color/teal_200">
 
-        <LinearLayout
-            android:id="@+id/moveLutemonsButtonsContainer"
+    <Button
+        android:id="@+id/buttonStartFight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Start Fight" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/buttonStartFight">
+
+        <TextView
+            android:id="@+id/textViewFightLog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            android:weightSum="2">
+            android:layout_margin="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </ScrollView>
 
-            <Button
-                android:id="@+id/buttonMoveToHomeFromFight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|left"
-                android:layout_marginHorizontal="4dp"
-                android:layout_weight="1"
-                android:text="Home" />
-
-            <Button
-                android:id="@+id/buttonMoveToTrain"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|right"
-                android:layout_marginHorizontal="4dp"
-                android:layout_weight="1"
-                android:text="Train" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerViewFight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/moveLutemonsButtonsContainer"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
-
-    </RelativeLayout>
-
+</RelativeLayout>

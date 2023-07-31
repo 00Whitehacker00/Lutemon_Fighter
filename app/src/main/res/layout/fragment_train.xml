@@ -18,13 +18,13 @@
             android:weightSum="2">
 
             <Button
-                android:id="@+id/buttonMoveToHome"
+                android:id="@+id/buttonTrain"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|left"
                 android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:text="Home" />
+                android:text="Treenaa" />
 
             <Button
                 android:id="@+id/buttonMoveToFightFromTrain"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal|right"
                 android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:text="Fight" />
+                android:text="Taisteluun!" />
 
         </LinearLayout>
 
